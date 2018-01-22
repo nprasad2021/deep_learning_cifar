@@ -39,8 +39,8 @@ X_test_unmod = X_test
 X_train /= 255
 X_test /= 255
 
-X_mean = np.mean(X_train, axis=4, keepdims=True)
-X_std = np.std(X_train, axis=4, keepdims=True) + 1e-7
+X_mean = np.mean(X_train, axis=(0,3), keepdims=True)
+X_std = np.std(X_train, axis=(0,3), keepdims=True) + 1e-7
 
 X_train = (X_train - X_mean)/(X_std)
 X_test = (X_test - X_mean)/(X_std)
@@ -228,7 +228,7 @@ model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
 
 model.fit_generator(datagen.flow(X_train, y_train, batch_size=100), 
-                     steps_per_epoch=X_train.shape[0]/batch_size, epochs=70)
+                     steps_per_epoch=X_train.shape[0]/100, epochs=70)
 
 predictions_test = np.argmax(model.predict(X_test), axis=1)
 
