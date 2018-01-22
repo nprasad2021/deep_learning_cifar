@@ -225,10 +225,10 @@ def ResNet50(input_shape = (32, 32, 3), classes = 10):
 #----------------------------------------------------------
 model = ResNet50()
 model.compile(loss='categorical_crossentropy',
-              optimizer=Adam(lr=0.005),
+              optimizer=Adam(lr=0.003),
               metrics=['accuracy'])
 model.fit_generator(datagen.flow(X_train, y_train, batch_size=100), 
-                     steps_per_epoch=X_train.shape[0]/100, epochs=70)
+                     steps_per_epoch=X_train.shape[0]/100, epochs=100)
 
 predictions_test = np.argmax(model.predict(X_test), axis=1)
 
