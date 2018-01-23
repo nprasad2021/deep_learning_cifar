@@ -221,7 +221,7 @@ model.compile(loss='categorical_crossentropy',
               optimizer=Adam(lr=0.002),
               metrics=['accuracy'])
 model.fit(X_train, y_train, batch_size=100, 
-          epochs=100, shuffle=True, verbose=2)
+          epochs=45, shuffle=True, verbose=2)
 
 predictions_test = np.argmax(model.predict(X_test), axis=1)
 
