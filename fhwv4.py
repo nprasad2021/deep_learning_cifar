@@ -200,7 +200,7 @@ def ResNet50(input_shape = (32, 32, 3), classes = 10):
     X = convolutional_block(X, f=3, filters=[64,64,256], s=2, block='a', stage=3)
     X = identity_block(X, 3, [64,64,256], stage=3, block='b')
     X = identity_block(X, 3, [64,64,256], stage=3, block='c')
-    X = identity_block(X, 3, [64,64,256], stage=3, block='d)
+    X = identity_block(X, 3, [64,64,256], stage=3, block='d')
     X = identity_block(X, 3, [64,64,256], stage=3, block='e')
 
     # Stage 4
